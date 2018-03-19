@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
+  <title>Layout</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header clearfix">
+      <div class="row header-row">
+        <nav>
+          <ul class="nav nav-pills pull-left">
+            <li role="presentation"><a href="/catalog">Каталог</a></li>
+            <li role="presentation"><a href="/payment">Оплата</a></li>
+            <li role="presentation"><a href="/delivery">Доставка</a></li>
+            <li role="presentation"><a href="/contacts">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <nav>
+          <ul th:if="${isAuth}" class="nav nav-pills pull-right">
+            <li th:if="${isAdmin}" role="presentation"><a href="/admin">Управление сайтом</a></li>
+            <li role="presentation"><a href="/user">Личный кабинет</a></li>
+            <li role="presentation"><a href="/auth/logout">Выход</a></li>
+          </ul>
+          <ul th:unless="${isAuth}" class="nav nav-pills pull-right">
+            <li role="presentation"><a href="/auth/login">Вход</a></li>
+            <li role="presentation"><a href="/auth/reg">Регистрация</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="row">
+        <a href="/"><img src="/images/logo.png"></a>
+      </div>
+
+    </div>
+
+    <div class="content" layout:fragment="content">
+      TEST
+    </div>
+
+    <footer class="footer">
+
+
+      <span class="footer-copyright">&copy; Амелин И. Е., 2017</span>
+    </footer>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

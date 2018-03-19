@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<head>
+  <title>Админка</title>
+</head>
+<body>
+  <div class="content" layout:fragment="content">
+    <div class="row">
+      <div class="admin-sidebar col-md-2">БОКОВАЯ ПАНЕЛЬ</div>
+      <div class="admin-content col-md-10" layout:fragment="admin-content">КОНТЕНТ</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout_admin}">
+<head>
+  <title>Список товаров</title>
+</head>
+<body>
+  <div class="admin-content col-md-10" layout:fragment="admin-content">
+
+    <div th:if="${isUpdated}" class="alert alert-success">
+      <p>Информация о ноутбуке успешно обновлена.</p>
+    </div>
+
+    <div th:if="${isDeleted}" class="alert alert-success">
+      <p>Ноутбук был удален.</p>
+    </div>
+
+    <a class="btn btn-primary" role="button" th:href="@{/admin/notebooks/add}" th:text="Добавить" />
+    <table th:unless="${#lists.isEmpty(notebooks)}" class="table table-hover">
+      <tr>
+        <td>Артикул</td>
+        <td>Марка</td>
+        <td>Модель</td>
+        <td>Процессор</td>
+        <td>ОЗУ</td>
+        <td>HDD</td>
+        <td>Видеокарта</td>
+        <td>Экран</td>
+        <td>Цена</td>
+        <td>Да</td>
+        <td>Да</td>
+      </tr>
+      <tr th:each="notebook : ${notebooks}">
+        <td th:text="${notebook.notebookId}" />
+        <td th:text="${notebook.brand}" />
+        <td th:text="${notebook.model}">/>
+        <td th:text="${notebook.processor}" />
+        <td th:text="${notebook.ram}" />
+        <td th:text="${notebook.hdd}" />
+        <td th:text="${notebook.video}" />
+        <td th:text="${notebook.screen}" />
+        <td th:text="${notebook.price}" />
+        <td><a th:href="@{/admin/notebooks/{id}(id = ${notebook.notebookId})}">Редактировать</a></td>
+        <td><a th:href="@{/admin/notebooks/delete/{id}(id = ${notebook.notebookId})}">Удалить</a></td>
+      </tr>
+    </table>
+
+    <span th:if="${#lists.isEmpty(notebooks)}">
+      В базе данных еще нет ноутбуков. <a th:href="@{/admin/notebooks/add}">Добавить ноутбук</a>
+    </span>
+
+  </div>
+</body>
+</html>

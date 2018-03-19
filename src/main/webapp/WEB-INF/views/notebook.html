@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<head>
+  <title th:text="'Ноутбук ' + ${notebook.brand} + ' ' + ${notebook.model}"></title>
+</head>
+<body>
+<div class="content" layout:fragment="content">
+  <h1><span th:text="${notebook.brand} + ' ' + ${notebook.model}" th:remove="tag" /></h1>
+
+  <h1>Комментарии</h1>
+  <div class="no-comments" th:if="${#lists.isEmpty(comments)}">
+    <h3>Данный ноутбук еще никто не прокомментировал</h3>
+    <span>Оставьте свой комментарий первым!</span>
+  </div>
+
+  <div class="comments" th:unless="${#lists.isEmpty(comments)}">
+    <h3>Что думают от этом ноутбуке другие:</h3>
+    <div class="comment" th:each="comment : ${comments}">
+      <span th:text="${#dates.format(comment.getTime(), 'dd.MM.yyyy в HH:mm')}" />
+      <span th:text="${comment.getText()}" />
+    </div>
+  </div>
+</div>
+</body>
+</html>

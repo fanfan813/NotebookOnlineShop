@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<head>
+  <title>Доступ запрещен</title>
+</head>
+<body>
+  <div class="content content-center" layout:fragment="content">
+    <h1>Доступ запрещен</h1>
+    <p>Вы не можете просматривать эту страницу.</p>
+    <a class="btn btn-info" role="button" th:href="@{/}">Перейти на главную страницу</a>
+  </div>
+</body>
+</html>

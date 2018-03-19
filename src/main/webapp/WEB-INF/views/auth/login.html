@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<head>
+  <title>Вход</title>
+</head>
+<body>
+<div class="content" layout:fragment="content">
+<div class="login-container">
+  <div class="row">
+    <div class="login-form col-md-4 col-md-offset-4">
+
+      <form action="#" th:action="@{/auth/login}" method="post" class="form-horizontal" th:object="${account}">
+        <div th:if="${error}" class="alert alert-danger">
+          <p>Неверное имя пользователя и пароль.</p>
+        </div>
+
+        <div th:if="${logout}" class="alert alert-success">
+          <p>Вы покинули сайт.</p>
+        </div>
+
+        <div class="input-group input-sm">
+          <label class="input-group-addon" for="username"><i class="fa fa-user"></i></label>
+          <input type="text" class="form-control" id="username" name="login" th:value="*{login}" placeholder="Введите логин" required>
+        </div>
+
+        <div class="input-group input-sm">
+          <label class="input-group-addon" for="password"><i class="fa fa-lock"></i></label>
+          <input type="password" class="form-control" id="password" name="password" th:value="*{password}" placeholder="Введите пароль" required>
+        </div>
+
+        <div class="input-group input-sm">
+          <div class="checkbox">
+            <label><input type="checkbox" id="rememberme" name="remember-me">Запомнить меня</label>
+          </div>
+        </div>
+
+        <div class="form-actions col-md-12">
+          <input type="submit" class="btn btn-block btn-primary btn-default" value="Войти">
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</body>

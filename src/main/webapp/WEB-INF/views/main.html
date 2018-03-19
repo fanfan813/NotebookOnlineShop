@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<head>
+  <title>Привет</title>
+</head>
+
+<body>
+  <div class="content" layout:fragment="content">
+    <h3 th:if="${username}">Привет, <span th:text="${username}" th:remove="tag" /> :)</h3>
+    <h3 th:unless="${username}">Привет, будущий покупатель нашего магазина!</h3>
+  </div>
+</body>

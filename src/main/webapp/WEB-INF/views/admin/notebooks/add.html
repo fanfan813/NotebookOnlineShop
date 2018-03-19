@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout_admin}">
+<head>
+  <title th:if="${isEditNotebook}">Редактировать данные о ноутбуке</title>
+  <title th:unless="${isEditNotebook}">Добавить новый ноутбук</title>
+</head>
+
+<body>
+  <div class="admin-content col-md-10" layout:fragment="admin-content">
+
+    <form action="#" th:action="${actionUrl}" method="post" class="form-horizontal" th:object="${notebook}">
+      <div class="form-group">
+        <label for="brand" class="col-sm-2 control-label">Марка</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="brand" name="brand" th:field="*{brand}" placeholder="Марка" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="model" class="col-sm-2 control-label">Модель</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="model" name="model" th:field="*{model}" placeholder="Модель" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="processor" class="col-sm-2 control-label">Процессор</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="processor" name="processor" th:field="*{processor}" placeholder="Процессор" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="ram" class="col-sm-2 control-label">Оперативная память</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="ram" name="ram" th:field="*{ram}" value="" placeholder="Оперативная память (в мегабайтах)" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="hdd" class="col-sm-2 control-label">Жесткий диск</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="hdd" name="hdd" th:field="*{hdd}" value="" placeholder="Объем жесткого диска (в гигабайтах)" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="video" class="col-sm-2 control-label">Видеокарта</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="video" name="video" th:field="*{video}" placeholder="Видеокарта" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="screen" class="col-sm-2 control-label">Диагональ экрана</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="screen" name="screen" th:field="*{screen}" placeholder="Размер экрана (в дюймах)" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="price" class="col-sm-2 control-label">Цена</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="price" name="price" th:field="*{price}" placeholder="Цена (в рублях)" required>
+        </div>
+      </div>
+
+      <input type="hidden" th:field="*{notebookId}" />
+
+      <div class="form-actions col-sm-2">
+        <input th:unless="${isEditNotebook}" type="submit" class="btn btn-block btn-primary btn-default" value="Добавить">
+        <input th:if="${isEditNotebook}"type="submit" class="btn btn-block btn-primary btn-default" value="Обновить">
+      </div>
+
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<head>
+  <title>Регистрация</title>
+</head>
+
+<body>
+<div class="content" layout:fragment="content">
+  <form action="#" th:action="@{/auth/reg}" th:object="${account}" method="POST" accept-charset="UTF-8" class="form-horizontal">
+
+    <div class="row">
+      <div class="form-group">
+        <label class="col-md-3 control-lable" for="firstName">Имя</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control input-sm" id="firstName" name="firstName" th:field="*{firstName}">
+          <div class="has-error">
+            <@spring.showErrors separator="firstName" classOrStyle="help-inline"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label class="col-md-3 control-lable" for="lastName">Фамилия</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control input-sm" id="lastName" name="lastName" th:field="*{lastName}" />
+          <div class="has-error">
+            <@spring.showErrors separator="lastName" classOrStyle="help-inline"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label class="col-md-3 control-lable" for="login">Логин</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control input-sm" id="login" name="login" th:field="*{login}">
+          <div class="has-error">
+            <@spring.showErrors separator='login' classOrStyle="help-inline"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label class="col-md-3 control-lable" for="password">Пароль</label>
+        <div class="col-md-7">
+          <input type="password" class="form-control input-sm" id="password" name="password" th:field="*{password}">
+          <div class="has-error">
+            <@spring.showErrors separator='passoword' classOrStyle="help-inline"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label class="col-md-3 control-lable" for="email">Email</label>
+        <div class="col-md-7">
+          <input type="text" class="form-control input-sm" id="email" name="email" th:field="*{email}">
+          <div class="has-error">
+            <@spring.showErrors separator='email' classOrStyle="help-inline"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-actions floatRight">
+        <input type="submit" value="Зарегистрироваться" class="btn btn-primary btn-sm"/>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+</html>

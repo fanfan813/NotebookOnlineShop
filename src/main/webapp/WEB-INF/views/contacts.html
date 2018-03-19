@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<head>
+  <title>Контакты</title>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content" layout:fragment="content">
+    <h1>Наши контакты</h1>
+
+    <div class="row">
+      <div class="col-md-3">
+        <address>
+          <strong>Мы находимся здесь:</strong><br>
+          394018, Россия,<br>Воронежская область, г. Воронеж,<br>ул. Университетская площадь, д. 1
+        </address>
+
+        <address>
+          <strong>Телефон:</strong><br>
+          8 (473) 220-75-21
+        </address>
+
+        <address>
+          <strong>E-mail:</strong><br>
+          sales&commat;shop.vsu.ru
+        </address>
+      </div>
+      <div class="col-md-6">
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <script>
+        function initMap() {
+            var office = {lat: 51.656424, lng: 39.206240};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: office
+            });
+            var marker = new google.maps.Marker({
+                position: office,
+                map: map
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg_Ucwi-OcxN-KZdwPSLVRP-8c-eLD0i8&callback=initMap">
+    </script>
+  </div>
+</body>

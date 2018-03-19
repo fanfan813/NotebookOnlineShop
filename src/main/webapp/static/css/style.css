@@ -1,0 +1,101 @@
+body {
+  padding-top: 5px;
+  padding-bottom: 20px;
+  background-color: #7fc7ff;
+}
+
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fff;
+}
+
+.header-row {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page header */
+.footer {
+  margin-top: 15px;
+  padding: 10px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+  background-color: #fff;
+}
+
+.footer-copyright, .footer-admin {
+  padding-left: 19px;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.content {
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fff;
+  padding: 19px;
+}
+
+.content h1 {
+  font-size: 22px;
+}
+
+.content-center {
+  text-align: center;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    /*margin-bottom: 30px;*/
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .content {
+    border-bottom: 0;
+  }
+}
